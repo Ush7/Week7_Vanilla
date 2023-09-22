@@ -20,7 +20,7 @@ function formatDate(currentTime) {
   return formattedDate;
 }
 console.log(formatDate(now));
-let displayTime = document.querySelector("h5");
+let displayTime = document.querySelector("#currentDate");
 displayTime.innerHTML = formatDate(now);
 
 function displayWeatherCondition(response) {
@@ -39,9 +39,9 @@ function displayWeatherCondition(response) {
 
 function displayCityname(event) {
   event.preventDefault();
-  let apiKey = "8c48afa47a9a9c24f3500c7039d50aaa";
+  let apiKey = "3eo0fetfbb61a575e45b64ff05342834";
   let city = document.querySelector("#enter-city-input").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query= ${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
