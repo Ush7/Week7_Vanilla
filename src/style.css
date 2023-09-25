@@ -40,6 +40,9 @@ ul {
 .degree {
   position: relative;
 }
+#weatherDescription {
+  text-transform: capitalize;
+}
 
 .todaycolumn2 {
   text-align: left;
