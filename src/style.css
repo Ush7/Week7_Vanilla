@@ -103,3 +103,10 @@ h4 {
 .container.text-center.fiveDay {
   padding-left: 30px;
 }
+#link {
+  text-align: right;
+  font-size: x-small;
+  font-weight: 400;
+  padding-right: 85px;
+  color: rgb(32, 33, 36);
+}
