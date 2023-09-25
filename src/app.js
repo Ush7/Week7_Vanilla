@@ -29,10 +29,12 @@ function formatDay(timestamp) {
 
 function displayWeatherCondition(response) {
   console.log(response.data);
+
+  let temperatureElement = document.querySelector("#temperature");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
   document.querySelector("#weatherDescription").innerHTML =
     response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -42,6 +44,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
@@ -59,10 +62,31 @@ function displayCityname(event) {
   let city = document.querySelector("#enter-city-input");
   search(city.value);
 }
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrentheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+
+  temperatureElement.innerHTML = Math.round(fahrentheitTemperature);
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
 let enterCityform = document.querySelector("#enter-city-form");
 enterCityform.addEventListener("submit", displayCityname);
 
-let displayCity = document.querySelector("h2");
-let dateElement = document.querySelector("#date");
-let iconElement = document.querySelector("#icon");
+let fahrenheitLinkElement = document.querySelector("#fahrenheitLink");
+fahrenheitLinkElement.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLinkElement = document.querySelector("#celsiusLink");
+celsiusLinkElement.addEventListener("click", displayCelsiusTemperature);
+
 search("Toronto");

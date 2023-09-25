@@ -15,6 +15,7 @@
 ul {
   list-style-type: none;
 }
+
 .heading-section {
   padding-top: 20px;
   padding-left: 30px;
@@ -30,15 +31,25 @@ ul {
   font-size: 84px;
   text-align: center;
 }
-.current-temp {
+#temperature {
   color: rgb(32, 33, 36);
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 650;
   line-height: 1;
   padding-left: 10px;
 }
+
 .degree {
   position: relative;
+}
+#celsiusLink.active,
+#fahrenheitLink.active {
+  color: rgb(32, 33, 36);
+  cursor: default;
+}
+#celsiusLink.active:hover,
+#fahrenheitLink.active :hover {
+  text-decoration: none;
 }
 #weatherDescription {
   text-transform: capitalize;
@@ -84,6 +95,8 @@ h4 {
   padding-bottom: 20px;
 }
 .weatherbox {
+  max-width: 200px;
+
   padding-top: 50px;
   opacity: 0.8;
 }

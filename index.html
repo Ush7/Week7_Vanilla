@@ -33,7 +33,7 @@
     <div class="container weatherbox">
       <div class="card">
         <div class="row heading-section">
-          <div class="col-4">
+          <div class="col-5">
             <h2 class="city" id="city">Toronto</h2>
             <h7>
               <div id="date">Thursday 8:00</div>
@@ -55,14 +55,17 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-4">
+          <div class="col-5">
             <div class="d-flex todaycolumn1">
               <div><img src="" alt="Clear" id="icon" /></div>
               <div class="current-temp" id="temperature">12</div>
-              <span class="degree">°C | °F </span>
+              <span class="degree"
+                ><a href="#" id="celsiusLink" class="active">°C</a> |
+                <a href="#" id="fahrenheitLink" class="active">°F</a>
+              </span>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-7">
             <ul class="todaycolumn2">
               <li>
                 <div class="todays-high-low">
