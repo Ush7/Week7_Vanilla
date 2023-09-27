@@ -26,24 +26,30 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[currentDay];
 }
+function displayForecast(response) {
+  console.log(response.data.daily);
+}
+function getForecast(coordinates) {
+  let apiKey = "8c48afa47a9a9c24f3500c7039d50aaa";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayWeatherCondition(response) {
   console.log(response.data);
-
+  let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let weatherDescriptionElement = document.querySelector("#weatherDescription");
+  let windElement = document.querySelector("#wind");
+  let humidityElement = document.querySelector("#humidity");
+
   celsiusTemperature = response.data.main.temp;
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#weatherDescription").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  cityElement.innerHTML = response.data.name;
+  weatherDescriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
@@ -51,7 +57,9 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
+
 function search(city) {
   let apiKey = "8c48afa47a9a9c24f3500c7039d50aaa";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
