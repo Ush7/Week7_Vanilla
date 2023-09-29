@@ -68,7 +68,7 @@ h4 {
 }
 .card.day-section {
   height: 170px;
-  width: 180px;
+  width: 150px;
   margin-bottom: 20px;
   margin-left: 30px;
   margin-right: 0px;
@@ -79,7 +79,6 @@ h4 {
 }
 .day-content {
   text-align: center;
-  padding-left: 0px;
 }
 .day-of-week {
   font-size: 16px;
@@ -87,7 +86,7 @@ h4 {
   padding-bottom: 5px;
 }
 .forecast-icon {
-  font-size: 42px;
+  font-size: 36px;
   padding-bottom: 10spx;
 }
 .forecast-temperature {
@@ -104,14 +103,13 @@ h4 {
   padding-top: 50px;
   opacity: 0.8;
 }
-.container.text-center.fiveDay {
-  padding-left: 30px;
+
+footer {
+  text-align: center;
+  margin: auto 0;
 }
 #link {
-  position: relative;
-  left: 405px;
   font-size: x-small;
   font-weight: 400;
-  padding-right: 85px;
   color: rgb(32, 33, 36);
 }
