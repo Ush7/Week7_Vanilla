@@ -61,10 +61,10 @@ function displayForecast(response) {
                     <div class="forecast-temperature">
                       <span class="forecast-high">${Math.round(
                         forecastDay.temp.max
-                      )}</span> |
+                      )}°</span> |
                       <span class="forecast-low">${Math.round(
                         forecastDay.temp.min
-                      )}</span>
+                      )}°</span>
                     </div>
                   </div>
                 </div>
@@ -87,14 +87,18 @@ function displayWeatherCondition(response) {
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let dateElement = document.querySelector("#date");
-  let iconElement = document.querySelector("#icon");
+  let iconElement = document.querySelector("#iconToday");
   let weatherDescriptionElement = document.querySelector("#weatherDescription");
   let windElement = document.querySelector("#wind");
   let humidityElement = document.querySelector("#humidity");
+  let highTempElement = document.querySelector("#highTemp");
+  let lowTempElement = document.querySelector("#lowTemp");
 
   celsiusTemperature = response.data.main.temp;
   cityElement.innerHTML = response.data.name;
   weatherDescriptionElement.innerHTML = response.data.weather[0].description;
+  highTempElement.innerHTML = Math.round(response.data.main.temp_max);
+  lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -117,31 +121,8 @@ function displayCityname(event) {
   let city = document.querySelector("#enter-city-input");
   search(city.value);
 }
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrentheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-
-  temperatureElement.innerHTML = Math.round(fahrentheitTemperature);
-}
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-let celsiusTemperature = null;
 
 let enterCityform = document.querySelector("#enter-city-form");
 enterCityform.addEventListener("submit", displayCityname);
-
-let fahrenheitLinkElement = document.querySelector("#fahrenheitLink");
-fahrenheitLinkElement.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLinkElement = document.querySelector("#celsiusLink");
-celsiusLinkElement.addEventListener("click", displayCelsiusTemperature);
 
 search("Toronto");
