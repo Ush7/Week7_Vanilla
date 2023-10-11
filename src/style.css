@@ -20,7 +20,15 @@ ul {
   padding-top: 20px;
   padding-left: 30px;
 }
-
+#searchButton,
+#currentButton {
+  margin-right: 10px;
+}
+#searchButton :hover,
+#currentButton :hover {
+  color: rgb(7, 32, 107);
+  cursor: default;
+}
 .todaycolumn1 {
   text-align: left;
   padding-left: 30px;
@@ -28,7 +36,7 @@ ul {
   padding-bottom: 10px;
 }
 .todayicon {
-  font-size: 84px;
+  font-size: 80px;
   text-align: center;
 }
 #temperature {
@@ -85,9 +93,8 @@ h4 {
   font-weight: bolder;
   padding-bottom: 5px;
 }
-.forecast-icon {
-  font-size: 36px;
-  padding-bottom: 10spx;
+#icon {
+  max-width: 70%;
 }
 .forecast-temperature {
   font-size: 13px;
@@ -101,7 +108,7 @@ h4 {
 .weatherbox {
   max-width: 200px;
   padding-top: 50px;
-  opacity: 0.8;
+  opacity: 0.86;
 }
 
 footer {
