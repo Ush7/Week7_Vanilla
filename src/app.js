@@ -45,7 +45,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col-lg-2 card day-section">
-              <div class="card-body boundry-daycontent">
+              <div class="card-text boundry-daycontent">
                 <div class="day-content">
                   <div class="day-of-week">
                     ${formatDay(forecastDay.dt)}
