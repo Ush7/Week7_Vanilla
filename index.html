@@ -30,13 +30,19 @@
     <title>Weather App</title>
   </head>
   <body>
+    <video autoplay loop muted plays-inline class="background-video">
+      <source src="media\coverr-cloudy-sky-Options2.mp4" type="video/mp4" />
+    </video>
     <div class="container weatherbox">
       <div class="card">
         <div class="row heading-section">
           <div class="col-5">
             <h2 class="city" id="city">Toronto</h2>
             <h7>
-              <div id="date">Thursday 8:00</div>
+              <div>
+                <span id="update">Last Updated:</span>
+                <span id="date">Thursday, 8:00 </span>
+              </div>
               <div id="weatherDescription">Sunny</div>
             </h7>
           </div>
@@ -48,7 +54,7 @@
                 placeholder="Enter City"
                 id="enter-city-input"
               />
-              <button class="btn btn-outline-primary" type="submit">
+              <button class="btn btn-primary" type="submit" id="searchButton">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
               </button>
             </form>
@@ -57,29 +63,31 @@
         <div class="row">
           <div class="col-5">
             <div class="d-flex todaycolumn1">
-              <div><img src="" alt="Clear" id="icon" /></div>
+              <div><img src="" alt="Clear" id="iconToday" /></div>
               <div class="current-temp" id="temperature">12</div>
-              <span class="degree"
-                id="celsiusLink">°C</a>
-              </span>
+              <span class="degree" id="celsiusLink">°C </span>
             </div>
           </div>
           <div class="col-7">
             <ul class="todaycolumn2">
               <li>
                 <div class="todays-high-low">
-                  High <span id="highTemp">25°C</span> | Low
-                  <span id="lowTemp"> 10°C</span>
+                  <i class="fa-solid fa-temperature-arrow-up"></i>
+                  <span id="highTemp">25</span>°C |
+                  <i class="fa-solid fa-temperature-arrow-down"></i>
+                  <span id="lowTemp"> 10</span>°C
                 </div>
               </li>
               <li>
                 <div class="todays-precipitation">
-                  Wind: <span id="wind">6</span> km/h
+                  <i class="fa-solid fa-wind"></i> Wind:
+                  <span id="wind">6</span> km/h
                 </div>
               </li>
               <li>
                 <div class="todays-humidity">
-                  Humidity: <span id="humidity">40</span>%
+                  <i class="fa-solid fa-droplet"></i> Humidity:
+                  <span id="humidity">40</span>%
                 </div>
               </li>
             </ul>
